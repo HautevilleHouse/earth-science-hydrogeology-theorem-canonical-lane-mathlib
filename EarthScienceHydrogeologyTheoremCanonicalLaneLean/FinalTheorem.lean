@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import EarthScienceHydrogeologyTheoremCanonicalLaneLean.GeologicFormation
+import EarthScienceHydrogeologyTheoremCanonicalLaneLean.AquiferFlowPDE
+import EarthScienceHydrogeologyTheoremCanonicalLaneLean.SourceTerm
+import EarthScienceHydrogeologyTheoremCanonicalLaneLean.WellHydraulics
+import EarthScienceHydrogeologyTheoremCanonicalLaneLean.TransportModel
+import EarthScienceHydrogeologyTheoremCanonicalLaneLean.InverseProblem
+
+namespace HautevilleHouse
+namespace EarthScienceHydrogeologyTheoremCanonicalLaneLean
+
+def constrainedHydrogeologyClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_hydrogeology_endgame (A : AdmissibleClass) : constrainedHydrogeologyClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end EarthScienceHydrogeologyTheoremCanonicalLaneLean
+end HautevilleHouse
